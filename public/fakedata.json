@@ -1,0 +1,26 @@
+[
+    {"id":1,
+        "price":450,
+        "name":"Made to Travel" ,
+"description":"The world just looks a little better when you go see it for a great price. That’s why we’ve created a yellow Member Price tag for Expedia Rewards members",
+"image":"http://www.freon.org/wp-content/uploads/2018/01/shutterstock_204205822-1600x900.jpg"
+    },
+    {"id":2,
+        "price":700,
+        "name":"Get outdoors and explore" ,
+"description":"Bid farewell to winter with an adventure spent with nature. Climb new heights. See incredible sights. Soak it all in as you experience Mother Nature in all her glory.",
+"image":"https://cdn.wallpapersafari.com/85/81/ZPcDax.jpg"
+    },
+    {"id":3,
+        "price":400,
+        "name":"Grab your keys and go" ,
+"description":"Here's where to go if you're looking to plan a city break itinerary filled with memorable cultural experiences",
+"image":"https://1.bp.blogspot.com/-Su_px5S4RBE/VjjA8gVsM6I/AAAAAAAAghU/p2bl2ras20o/s1600/5%2BReason%2BTraveling%2BWill%2BMake%2BYou%2BMore%2BSuccessful.jpg"
+    },
+    {"id":4,
+        "price":500,
+        "name":"Seize your next unforgettable family vacation" ,
+"description":"You’ve stayed home dreaming, but now it’s time to get the family back out into the world! Seize your someday today with a fantastic trip .",
+"image":"https://www.onetravel.com/going-places/wp-content/uploads/2018/09/family-traveling-together-810x486.jpg"
+    }
+]

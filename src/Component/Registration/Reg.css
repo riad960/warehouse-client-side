@@ -1,0 +1,20 @@
+form{
+    
+  margin: 10px 15px;
+  width: 30%;
+    }
+    .reg{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+    }
+@media(max-width:600px){
+    form{
+        width: 90%;
+        
+        }
+        
+}
