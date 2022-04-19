@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getAuth, signOut } from "firebase/auth";
 import {
   MDBContainer,
   MDBNavbar,
@@ -17,13 +18,18 @@ import {
   MDBCollapse,
 } from "mdb-react-ui-kit";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-function Navbar() {
+import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+function Navbar({ user }) {
   const [showBasic, setShowBasic] = useState(false);
-  const user = 1;
+
   const navigate = useNavigate();
   const loginHandle = (e) => {
     e.preventDefault();
     navigate("/registration");
+  };
+  const handleSignOut = () => {
+    signOut(auth);
   };
   return (
     <MDBNavbar expand="lg" light bgColor="light" className="fixed-top ">
@@ -47,7 +53,7 @@ function Navbar() {
 
         <MDBCollapse navbar show={showBasic}>
           <MDBNavbarNav className="justify-content-center align-items-center mb-2  mb-lg-0">
-            <Link className="p-3 text-dark fw-bold" to="/services">
+            <Link className="p-3 text-dark fw-bold" to="/#services">
               SERVICES
             </Link>
             <Link className="p-3 text-dark fw-bold" to="/blog">
@@ -62,12 +68,12 @@ function Navbar() {
           </MDBNavbarNav>
 
           <form className="d-flex input-group w-auto">
-            {user ? (
+            {!user ? (
               <MDBBtn color="primary" onClick={loginHandle}>
                 Login
               </MDBBtn>
             ) : (
-              <MDBBtn color="danger" rounded>
+              <MDBBtn color="danger" rounded onClick={handleSignOut}>
                 Logout
               </MDBBtn>
             )}

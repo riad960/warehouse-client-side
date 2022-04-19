@@ -9,8 +9,14 @@ import {
   MDBRipple,
   MDBBadge,
 } from "mdb-react-ui-kit";
+import { Navigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Service({ price, name, des, img }) {
+  const navigate = useNavigate();
+  const checkOut = () => {
+    navigate("/checkOut");
+  };
   return (
     <MDBCard style={{ maxWidth: "22rem" }}>
       <MDBRipple
@@ -37,8 +43,8 @@ export default function Service({ price, name, des, img }) {
         <MDBCardText style={{ color: "#6b7280", fontWeight: "400" }}>
           {des}
         </MDBCardText>
-        <MDBBtn href="#" className="text-center">
-          Button
+        <MDBBtn href="#" className="text-center" onClick={checkOut}>
+          Buy Now
         </MDBBtn>
       </MDBCardBody>
     </MDBCard>

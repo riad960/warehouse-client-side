@@ -7,9 +7,10 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 import "./Reg.css";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+
 import auth from "../../firebase.init";
 export default function App() {
   const navigate = useNavigate();
@@ -21,8 +22,9 @@ export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [retypedPassword, setRetypedPassword] = useState("");
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [errors, setErrors] = useState("");
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
   // click handler mail
   const handlePass = (e) => {
     setPassword(e.target.value);
@@ -36,18 +38,13 @@ export default function App() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
+
+    if (password === retypedPassword) {
+      createUserWithEmailAndPassword(email, password);
+      navigate("/");
+    } else {
+      setErrors("Password Should be matched");
+    }
   };
 
   return (
@@ -57,23 +54,26 @@ export default function App() {
         <MDBInput
           className="mb-4"
           type="text"
-          id="form1Example1"
+          id="form1Example4"
           label="Full Name"
+          required
         />
         <MDBInput
           onBlur={emailOnblur}
           className="mb-4"
           type="email"
-          id="form1Example3"
+          id="form1Example7"
           label="Email address"
+          required
         />
 
         <MDBInput
           onBlur={handlePass}
           className="mb-4"
           type="password"
-          id="form1Example2"
+          id="form1Example9"
           label="Password"
+          required
         />
         <MDBInput
           onBlur={handleRetypedPass}
@@ -81,6 +81,7 @@ export default function App() {
           type="password"
           id="form1Example4"
           label="Retype Password"
+          required
         />
 
         <MDBRow className="mb-4">
@@ -92,10 +93,16 @@ export default function App() {
             />
           </MDBCol>
           <MDBCol>
-            <p onClick={redirectToLogin}>Already?</p>
+            <p
+              className="text-primary fw-bold"
+              style={{ cursor: "pointer" }}
+              onClick={redirectToLogin}
+            >
+              Already a user ?
+            </p>
           </MDBCol>
         </MDBRow>
-
+        <p className="text-danger">{errors}</p>
         <MDBBtn type="submit" block>
           Sign up
         </MDBBtn>

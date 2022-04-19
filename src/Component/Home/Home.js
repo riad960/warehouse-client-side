@@ -5,7 +5,7 @@ import "./Home.css";
 import UseData from "../Customhook/UseData";
 function Home() {
   const data = UseData();
-  console.log(data);
+
   return (
     <MDBContainer className="flex  justify-center my-carousole">
       <div
@@ -114,7 +114,7 @@ function Home() {
       </div>
 
       {/* slider ends */}
-      <section className="" style={{ background: "#eee" }}>
+      <section className="" id="services" style={{ background: "#eee" }}>
         <div className="container py-5">
           <h1 className="text-center my-5 ">Our Services</h1>
           <div className="row">
