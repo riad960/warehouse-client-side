@@ -43,9 +43,11 @@ function Home() {
               alt="..."
             />
             <div className="carousel-caption hidden md:block absolute text-center items-in-center">
-              <h5 className="text-xl my-2">Third slide label</h5>
+              <h5 className="text-xl my-2">Made to Travel</h5>
               <p>
-                Some representative placeholder content for the third slide.
+                The world just looks a little better when you go see it for a
+                great price. That’s why we’ve created a yellow Member Price tag
+                for Expedia Rewards members
               </p>
               <MDBBtn color="light" className="my-2">
                 Button
@@ -59,7 +61,7 @@ function Home() {
               alt="..."
             />
             <div className="carousel-caption hidden md:block absolute text-center items-in-center">
-              <h5 className="text-xl my-2">Third slide label</h5>
+              <h5 className="text-xl my-2">Made to Travel</h5>
               <p>
                 Some representative placeholder content for the third slide.
               </p>

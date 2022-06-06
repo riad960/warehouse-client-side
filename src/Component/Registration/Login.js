@@ -47,14 +47,11 @@ export default function App() {
     navigate("/");
   };
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
-  const handleGoogle = (e) => {
+  const handleGoogle = async (e) => {
     e.preventDefault();
 
     signInWithGoogle();
-
-    if (user2) {
-      navigate("/checkout");
-    }
+    navigate("/checkOut");
   };
   return (
     <div className="reg ">
